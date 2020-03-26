@@ -117,12 +117,51 @@ document.addEventListener('DOMContentLoaded', ()=>{
         }
     
         const displayFav = (data) => {
+            let favoris = document.querySelector('#favoris');
             favoris.innerHTML = '';
             for(let fav of data.data.bookmark){
                 favoris.innerHTML += `
-                    <span>${fav.description}</span><br>                        
+                    <li class="mt-1" source-id="${fav.id}" fav-id="${fav._id}">
+                        <span class="single-fav">${fav.description}</span>
+                        <i class="fas fa-trash-alt trash-fav"></i>
+                    </li>                             
                 `;
-            }        
+            }
+            removeFavorite();        
+        }
+
+        const removeFavorite = () =>{
+            let favoris = document.querySelectorAll('.trash-fav');
+            for(let favori of favoris){
+                favori.addEventListener('click', () =>{
+                    let id = favori.parentElement.getAttribute('fav-id');
+                    let confirmation = confirm("Voulez vous supprimer cette news de vos favoris ?")
+                    if (confirmation == true) {
+                    fetchRemoveFav(id);
+                    favori.parentElement.style.display = 'none'
+                    }
+                    else {
+                        console.log("Annulation")
+                    }
+                })
+            }
+        }
+
+        const fetchRemoveFav = (id) => {
+            new FETCHrequest(
+                apiUrl+'/bookmark/'+ id,
+                'DELETE',
+                {
+                    token: localStorage.getItem('jwt')
+                }
+            )
+            .fetch()
+            .then(jsonData => {
+                console.log(jsonData);
+            })
+            .catch(error=>{
+                console.log(error);
+            })
         }
     
         const displayMedia = (data) => {
