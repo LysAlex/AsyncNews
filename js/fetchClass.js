@@ -1,6 +1,6 @@
 class FETCHrequest {
 
-    constructor(url, requestType, data = null) {
+    constructor(url, requestType, data = null) { 
         this.url = url;
         this.requestType = requestType;
         this.data = data;
