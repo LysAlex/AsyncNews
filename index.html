@@ -1,85 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-    <title>Api News</title>
+    <title>Document</title>
 </head>
 <body>
-    <!-- Navbar connected -->
-    <nav id="nav-connected" class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="index.html">POPCORNjavascript</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="index.html">Accueil <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="movie.html">Films</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="favorite.html">Favoris</a>
-                </li>
-            </ul>
-            <h6 id="hello" class="mr-2"></h6>
-            <button id="profil" class="mr-2 btn btn-primary">Mon profil</button>
-            <button id="disconnected" class="btn btn-danger">Se déconnecter</button>
+    <div id="nav">
+        <div id="loginForm" class="d-flex flex-row">
+            <form>
+                <input id="emailLogin" type="text" placeholder="email">
+                <input id="passswordLogin" type="password" placeholder="mot de passe">
+                <button id="btnLogin" type="submit"> Valider</button>
+            </form>
         </div>
-    </nav>
-    <!-- Navbar not connected -->
-    <nav id="nav-unconnected" class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="index.html">Api News</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="index.html">Accueil <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="movie.html">Films</a>
-                </li>
-            </ul>
-            <div class="form-inline my-2 my-lg-0">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="register.html" tabindex="-1">S'inscrire</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="login.html" tabindex="-1">Se connecter</a>
-                    </li>
-                </ul>
-            </div>
+        <div id="registerForm" class="d-flex flex-row">
+            <form>
+                <input id="emailRegister" type="text" placeholder="email">
+                <input id="firstnameRegister" type="text" placeholder="firstname">
+                <input id="lastnameRegister" type="text" placeholder="lastname">
+                <input id="passwordRegister" type="password" placeholder="mot de passe">
+                <button id="btnRegister" type="submit"> Valider</button>
+            </form>
         </div>
-    </nav>
-    <div class="container mt-5 mb-5">
-        <div class="row">
-            <div id="main" class="col-10 m-auto p-5">
-                <h1 class="text-center">Api News</h1>
-                <p class="p-5">
-                    Trouver des informations sur les actualités grâce à API News.
-                </p>
-                <div class="d-flex flex-row justify-content-around">
-                    <button class="btn btn-primary"><a href="sources.html">Voir plus</a></button>
-                    <button class="btn btn-primary"><a href="register.html">S'inscrire</a></button>
-                </div>
-            </div>
+        <div id="loggedUser" class="d-flex flex-row">
+
         </div>
     </div>
-    <script src="./js/checkLogin.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <div class="container">
+        <div id="favoris" class="d-flex flex-row">
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Journaux Mondiaux</label>
+            <select class="form-control" id="selectMedia">
+            </select>
+            <form class="form form-inline" id="searchForm" action="#">
+            <label for="searchData">Search a news<span></span></label>
+            <input type="text" name="searchData" id="searchData" minlength="1" required>
+            <button type="submit">Search</button>
+            </form>
+        </div>        
+    </div>
+    <div class="container">
+        <div id="articles" class="row">
+
+        </div>
+    </div>
+
+    <div id="msgPopin" class="alert alert-warning alert-dismissible fade show" role="alert">
+    </div>
+<script src="https://kit.fontawesome.com/3ad9cb1e70.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>    
+<script src="./js/fetchClass.js"></script>
+<script src="./js/app.js"></script>
 </body>
 </html>
